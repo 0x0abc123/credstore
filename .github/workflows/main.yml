@@ -21,12 +21,7 @@ jobs:
 
       - name: Build C++ Application
         run: |
-          # Set the path to your C++ source file and the desired output executable name
-          SOURCE_FILE=credstore.cpp
-          OUTPUT_EXECUTABLE=credstore.exe
-
-          # Compile the C++ source file to a Windows executable
-          cl.exe /EHsc /Fe:$OUTPUT_EXECUTABLE $SOURCE_FILE
+          cl.exe credstore.cpp /link Advapi32.lib
 
       - name: Upload Executable as Artifact
         uses: actions/upload-artifact@v2
